@@ -57,12 +57,12 @@ codef.setClientInfo(CLIENT_ID, CLIENT_SECRET);
  *  - 운영 : EasyCodefConstant.SERVICE_TYPE_API
  */
 codef
-  .requestToken(EasyCodefConstant.SERVICE_TYPE_DEMO)
+  .requestToken(EasyCodefConstant.SERVICE_TYPE_API)
   .then(function (response) {
     /*
      * #6. 토큰 발급 결과
      */
-    console.log(response);
+    // console.log(response);
   });
 
 app.post("/result", (req, res) => {
@@ -71,7 +71,7 @@ app.post("/result", (req, res) => {
   /* #6.코드에프 정보 조회 요청 - 서비스타입(API:정식, DEMO:데모, SANDBOX:샌드박스) */
   const productUrl = "/v1/kr/public/pp/nhis-health-checkup/result"; //
   codef
-    .requestProduct(productUrl, EasyCodefConstant.SERVICE_TYPE_DEMO, param)
+    .requestProduct(productUrl, EasyCodefConstant.SERVICE_TYPE_API, param)
     .then(function (response) {
       // #7. 응답 결과
       res.send(response);
@@ -84,7 +84,7 @@ app.post("/information", (req, res) => {
   /* #6.코드에프 정보 조회 요청 - 서비스타입(API:정식, DEMO:데모, SANDBOX:샌드박스) */
   const productUrl = "/v1/kr/public/pp/nhis-treatment/information"; //
   codef
-    .requestProduct(productUrl, EasyCodefConstant.SERVICE_TYPE_DEMO, param)
+    .requestProduct(productUrl, EasyCodefConstant.SERVICE_TYPE_API, param)
     .then(function (response) {
       // #7. 응답 결과
       res.send(response);
